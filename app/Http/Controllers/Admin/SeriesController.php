@@ -54,7 +54,7 @@ class SeriesController extends Controller
     public function store(SeriesStoreRequest $request)
     {
         // call method uploadCover from trait hasCover
-        $cover = $this->uploadCover($request, $path = 'public/covers/', $name='cover');
+        $cover = $this->uploadImage($request, $path = 'public/covers/', $name='cover');
 
         // get request data from input
         $data = $request->all();

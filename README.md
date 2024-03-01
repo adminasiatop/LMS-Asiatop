@@ -56,3 +56,43 @@ password : password
 
 ## License
 Aplikasi ini bersifat open source dapat digunakan oleh siapa pun dengan syarat tidak untuk di perjual belikan.
+
+
+
+## Penjelasan Fitur CNC :
+Struktur Perubahan nya ada di .PHP berikut :
+1. Sidebar : untuk mapping tampilan system ke halaman .php
+2. Controller : untuk mengatur antara database + tampilan + codingan
+3. Model : untuk mengatur database
+4. View : untuk mengatur tampilan utama system
+5. Route : konsep MVC : mengatur mvc didalam sebuah system
+
+Laravel cnc =
+- View         : /resource/views/admin/cnc/index.blade.php
+- Controller   : /app/http/Controllers/Admin/CncController.php
+- Model        : /app/http/Models/Cnc.php
+- Route        : /routes/web.php
+
+tampilan view identifikasi (kamal)
+tampilan view coaching (Panji)
+tampilan view conceling (ikram)
+
+
+
+https://github.com/Raf-Taufiqurrahman/Laravel-LMS (Link Github)
+
+441401831 Anydesk
+
+ 'coachkaryawanID',
+        'coacheekaryawanID',
+        'tanggal',
+        'topik',
+        'point',
+        'indikator',
+        'rekomendasi',
+        'improvement',
+        'support',
+        'goal',
+        'reality',
+        'opsi',
+        'will'

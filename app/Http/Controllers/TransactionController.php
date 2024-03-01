@@ -16,12 +16,12 @@ class TransactionController extends Controller
         $length = 10;
         $random = '';
         // do loop until $i have 10 character
-        for($i = 0; $i < $length; $i++){
+        for ($i = 0; $i < $length; $i++) {
             // get random character from string and number
-            $random .= rand(0,1) ? rand(0,9) : chr(rand(ord('a'), ord('z')));
+            $random .= rand(0, 1) ? rand(0, 9) : chr(rand(ord('a'), ord('z')));
         }
         // get invoice code
-        $invoice = 'INV-'.Str::upper($random);
+        $invoice = 'INV-' . Str::upper($random);
 
         // create new transaction
         $transaction = Transaction::create([
@@ -38,7 +38,7 @@ class TransactionController extends Controller
         $carts = Cart::where('user_id', Auth::id())->get();
 
         // looping carts
-        foreach($carts as $cart){
+        foreach ($carts as $cart) {
             // create new transaction detail
             $transaction->details()->create([
                 'transaction_id' => $transaction->id,

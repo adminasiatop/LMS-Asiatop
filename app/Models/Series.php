@@ -26,7 +26,7 @@ class Series extends Model
     // generate cover
     public function getCoverAttribute($cover)
     {
-        return asset('storage/covers/' . $cover);
+        return asset('public/covers/' . $cover);
     }
 
     // relationship with tags

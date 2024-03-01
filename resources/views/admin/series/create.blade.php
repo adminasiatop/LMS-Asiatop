@@ -55,12 +55,12 @@
                                 <x-form.checkbox title="Series Status">
                                     <label class="form-check form-check-inline">
                                         <input class="form-check-input @error('status') is-invalid @enderror"
-                                            type="checkbox" name="status" value="0">
+                                            type="radio" name="status" value="0">
                                         <span class="form-check-label">Developed</span>
                                     </label>
                                     <label class="form-check form-check-inline">
                                         <input class="form-check-input @error('status') is-invalid @enderror"
-                                            type="checkbox" name="status" value="1">
+                                            type="radio" name="status" value="1">
                                         <span class="form-check-label">Completed</span>
                                     </label>
                                 </x-form.checkbox>

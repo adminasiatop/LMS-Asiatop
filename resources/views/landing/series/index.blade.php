@@ -34,9 +34,6 @@
                                     <div>
                                         {{ $data->videos->count() }} Episode
                                     </div>
-                                    <div>
-                                        Rp. {{ number_format($data->price) }}
-                                    </div>
                                 </div>
                             </div>
                             <div class="card-footer">

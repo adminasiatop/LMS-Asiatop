@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Series;
 use Carbon\CarbonImmutable;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class LandingController extends Controller
 {

@@ -11,7 +11,7 @@
                 <x-card.card-description>
                     <div class="row">
                         <div class="col-7">
-                            <div class="ribbon bg-red">Rp. {{ number_format($series->price) }}</div>
+                            <div class="ribbon bg-red">New</div>
                             <h3 class="card-title">{{ $series->name }}</h3>
                             <p class="card-text">{{ $series->description }}</p>
                             <x-utilities.item date="{{ $series->created_at->format('d F Y') }}"
@@ -28,14 +28,14 @@
                                 @else
                                     <form action="{{ route('carts.store', $series->slug) }}" method="POST">
                                         @csrf
-                                        <x-button.button-save icon="shopping-cart" title="Buy Now"
+                                        <x-button.button-save icon="cart" title="Ikut"
                                             class="btn btn-outline-primary" />
                                     </form>
                                 @endif
                             </div>
                         </div>
                         <div class="col-5">
-                            <img src="{{ $series->cover }}" class="img-fluid" />
+                            <img src="{{ URL($series->cover ) }} " class="img-fluid" />
                         </div>
                     </div>
                 </x-card.card-description>

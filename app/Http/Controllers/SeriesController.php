@@ -35,22 +35,22 @@ class SeriesController extends Controller
 
         // get transaction by user id
         $transaction = Transaction::with('details')->where('user_id', Auth::id())->where('status', 1)
-        ->whereHas('details', function($query) use($series){
-            $query->where('series_id', $series->id);
-        })->get();
+            ->whereHas('details', function ($query) use ($series) {
+                $query->where('series_id', $series->id);
+            })->get();
 
         // define variable $purchased
         $purchased = null;
 
         // if transaction is not empty
-        if($transaction->count() > 0){
+        if ($transaction->count() > 0) {
             // get all userSeries, call from method userSeries, trait hasSeries
             $purchased = $this->userSeries()->get();
-        }else{
+        } else {
             $purchased = 0;
         }
 
-        return view('landing.series.show', compact('series','videos', 'members', 'purchased', 'transaction'));
+        return view('landing.series.show', compact('series', 'videos', 'members', 'purchased', 'transaction'));
     }
 
     public function video($slug, $episode)
@@ -63,18 +63,18 @@ class SeriesController extends Controller
 
         // get transaction by user id
         $transaction = Transaction::with('details')->where('user_id', Auth::id())->where('status', 1)
-        ->whereHas('details', function($query) use($series){
-            $query->where('series_id', $series->id);
-        })->get();
+            ->whereHas('details', function ($query) use ($series) {
+                $query->where('series_id', $series->id);
+            })->get();
 
         // define variable $purchased
         $purchased = null;
 
         // if transaction is not empty
-        if($transaction->count() > 0){
+        if ($transaction->count() > 0) {
             // get all userSeries, call from method userSeries, trait hasSeries
             $purchased = $this->userSeries()->get();
-        }else{
+        } else {
             $purchased = 0;
         }
 
@@ -82,14 +82,14 @@ class SeriesController extends Controller
         $videos = '';
 
         // user can watch full video if user have this series or user still can watch video only intro video
-        if($purchased || $video->intro == 1){
+        if ($purchased || $video->intro == 1) {
             // if true, get all video by series
             $videos = Video::where('series_id', $series->id)->orderBy('episode')->paginate(10);
-        }else{
+        } else {
             // if false, get only intro video
             return back()->with('toast_error', 'You must buy this series first');
         }
         // return to view
-        return view('landing.series.video', compact('series','video','videos'));
+        return view('landing.series.video', compact('series', 'video', 'videos'));
     }
 }

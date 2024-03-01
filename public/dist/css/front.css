@@ -1,0 +1,156 @@
+.frame {
+    background-color: transparent;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .frame .div {
+    background-image: url(./img/frame-7150.png);
+    background-size: cover;
+    background-position: 50% 50%;
+    width: 1440px;
+    height: 680px;
+    position: relative;
+  }
+  
+  .frame .group {
+    position: absolute;
+    width: 801px;
+    height: 124px;
+    top: 245px;
+    left: 320px;
+  }
+  
+  .frame .group-2 {
+    position: relative;
+    width: 805px;
+    height: 124px;
+  }
+  
+  .frame .text-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-family: "Nunito-Bold", Helvetica;
+    font-weight: 700;
+    color: #ffffff;
+    font-size: 55px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+  
+  .frame .p {
+    position: absolute;
+    top: 90px;
+    left: 145px;
+    font-family: "Nunito-Medium", Helvetica;
+    font-weight: 500;
+    color: #ffffff;
+    font-size: 25px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+  
+  .frame .top-nav-bar {
+    position: absolute;
+    width: 1281px;
+    height: 70px;
+    top: 30px;
+    left: 80px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    overflow: hidden;
+  }
+  
+  .frame .group-3 {
+    position: absolute;
+    width: 367px;
+    height: 20px;
+    top: 25px;
+    left: 640px;
+  }
+  
+  .frame .text-wrapper-2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-family: "Nunito-Regular", Helvetica;
+    font-weight: 400;
+    color: #0b2c3d;
+    font-size: 15px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+  
+  .frame .text-wrapper-3 {
+    position: absolute;
+    top: 0;
+    left: 97px;
+    font-family: "Nunito-Regular", Helvetica;
+    font-weight: 400;
+    color: #0b2c3d;
+    font-size: 15px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+  
+  .frame .text-wrapper-4 {
+    position: absolute;
+    top: 0;
+    left: 241px;
+    font-family: "Nunito-Regular", Helvetica;
+    font-weight: 400;
+    color: #0b2c3d;
+    font-size: 15px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+  
+  .frame .div-wrapper {
+    position: absolute;
+    width: 100px;
+    height: 44px;
+    top: 13px;
+    left: 1158px;
+    background-color: #ff5a3c;
+    border-radius: 5px;
+    overflow: hidden;
+  }
+  
+  .frame .text-wrapper-5 {
+    position: absolute;
+    top: 11px;
+    left: 31px;
+    font-family: "Nunito-Medium", Helvetica;
+    font-weight: 500;
+    color: #ffffff;
+    font-size: 15px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+  
+  .frame .line {
+    position: absolute;
+    width: 41px;
+    height: 4px;
+    top: 48px;
+    left: 640px;
+  }
+  
+  .frame .image {
+    position: absolute;
+    width: 128px;
+    height: 70px;
+    top: 0;
+    left: 11px;
+    object-fit: cover;
+  }
+  

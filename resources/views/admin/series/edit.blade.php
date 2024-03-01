@@ -64,12 +64,12 @@
                             <div class="col-6">
                                 <x-form.checkbox title="Series Status">
                                     <label class="form-check form-check-inline">
-                                        <input class="form-check-input" type="checkbox" name="status" value="0"
+                                        <input class="form-check-input" type="radio" name="status" value="0"
                                             {{ $series->status == '0' ? 'checked' : '' }}>
                                         <span class="form-check-label">Developed</span>
                                     </label>
                                     <label class="form-check form-check-inline">
-                                        <input class="form-check-input" type="checkbox" name="status" value="1"
+                                        <input class="form-check-input" type="radio" name="status" value="1"
                                             {{ $series->status == '1' ? 'checked' : '' }}>
                                         <span class="form-check-label">Completed</span>
                                     </label>

@@ -88,6 +88,19 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.',  'middleware' => ['auth', '
     Route::resource('permissions', App\Http\Controllers\Admin\PermissionController::class);
     // route transactions
     Route::resource('transactions', App\Http\Controllers\Admin\TransactionController::class);
-});
+
+
+    // route cnc (Tampil Data)
+    Route::resource('cnc', App\Http\Controllers\Admin\CncController::class);
+    Route::resource('karyawan', App\Http\Controllers\Admin\KaryawanController::class);
+    Route::resource('divisi', App\Http\Controllers\Admin\DivisiController::class);
+    Route::resource('departemen', App\Http\Controllers\Admin\DepartemenController::class);
+    Route::resource('identifikasicoaching', App\Http\Controllers\Admin\IdentifikasicoachingController::class);
+    // Route::post('admin.cnc.store','CncController@store');
+    // Route::resource('fcoaching', App\Http\Controllers\Admin\FCoachingcontroller::class);
+    // Route::resource('fconseling', App\Http\Controllers\Admin\FConselingController::class);
+    Route::resource('coaching', App\Http\Controllers\Admin\CoachingController::class);
+    Route::resource('counseling', App\Http\Controllers\Admin\CounselingController::class);
+    });
 
 

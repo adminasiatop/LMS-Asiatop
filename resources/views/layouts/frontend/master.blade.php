@@ -29,6 +29,7 @@
     <!-- Tabler Plugins -->
     <link href="{{ asset('dist/css/demo.min.css') }}" rel="stylesheet" />
     <link href="{{ asset('dist/libs/selectize/dist/css/selectize.css') }}" rel="stylesheet" />
+    <link href="{{ asset('css/plugin.css') }}" rel="stylesheet">
 
 
     @stack('css')
@@ -48,6 +49,7 @@
 
             <!-- Footer -->
             @include('layouts.frontend._footer')
+
             <!-- alert -->
             @include('sweetalert::alert')
         </div>
