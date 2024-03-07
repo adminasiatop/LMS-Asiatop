@@ -43,7 +43,7 @@
                                     </select>                                </div>
                                 <div class="col-3">
                                     <x-form.input class="col-3 col-md-3" type="text" title="status" name="status" value=""
-                                    placeholder="status"/>
+                                    placeholder="status" required/>
                                 </div>
                             </div>
                             

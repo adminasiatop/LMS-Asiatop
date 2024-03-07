@@ -7,44 +7,165 @@
         <div class="row">
             <div class="col-12">
                 <a href="{{ route('admin.identifikasicoaching.create') }}" class="btn btn-primary mb-3">
-                    <i class="fas fa-plus mr-2"></i> Create New Form Identifikasi Coaching
+                    <i class="fas fa-plus mr-2"></i> Create New Form Coaching Identify
                 </a>
-                <x-card.card-action title="List Identifikasi Coaching" url="{{ route('admin.identifikasicoaching.index') }}">
+
+                <x-card.card-action title="List Coaching Identify" url="{{ route('admin.identifikasicoaching.index') }}">
                     <x-table.table-responsive>
                         <thead>
                             <tr>
-                                <th>No</th>
-                                <th>Nama Coach</th>
-                                <th>Nama Coachee</th>
-                                <th>Tanggal Pelaksanaan</th>
-                                <th>Permasalahan yang dihadapi Coachee</th>
-                                <th>Strategi/Tindakan jangka pendek yang sudah dilakukan oleh Coachee </th>
-                                <th>Rencana Improvement yang akan dilakukan</th>
-                                <th>Rekomendasi Coaching yang diajukan oleh Coach untuk Coachee </th>
-                                <th>Goal</th>
-                                <th>Reality</th>
-                                <th>Opsi</th>
-                                <th>Will</th>
-                                <th>Penilaian Terhadap Coachee</th>
-                                <th>Action</th>
+                                <th rowspan="2">No</th>
+                                <th rowspan="2">Nama Coach</th>
+                                <th rowspan="2">Nama Coachee</th>
+                                <th rowspan="2">Tanggal Pelaksanaan</th>
+                                <th rowspan="2">Permasalahan yang dihadapi Coachee</th>
+                                <th rowspan="2">Strategi/Tindakan jangka pendek yang sudah dilakukan oleh Coachee </th>
+                                <th rowspan="2">Rencana Improvement yang akan dilakukan</th>
+                                <th colspan="6">Rekomendasi Coaching yang diajukan oleh Coach untuk Coachee </th>
+                                <th rowspan="2">Goal</th>
+                                <th rowspan="2">Reality</th>
+                                <th rowspan="2">Opsi</th>
+                                <th rowspan="2">Will</th>
+                                <th colspan="6">Penilaian Terhadap Coachee</th>
+                                <th rowspan="2">Action</th>
+                            </tr>
+                            <tr>
+                                <th>Coaching One on One</th>
+                                <th>Training Enhancement</th>
+                                <th>Join Field Work (Mentoring)</th>
+                                <th>Counseling</th>
+                                <th>Meeting</th>
+                                <th>Sales Clinic</th>
+                                <th>Coaching One on One</th>
+                                <th>Training Enhancement</th>
+                                <th>Join Field Work (Mentoring)</th>
+                                <th>Counseling</th>
+                                <th>Meeting</th>
+                                <th>Sales Clinic</th>
                             </tr>
                         </thead>
                         <tbody>
                             @forelse ($identifikasicoaching as $identifikasicoaching)
                                 <tr>
-                                    <td>{{$loop->iteration}}</td>
+                                    <td>{{ $loop->iteration }}</td>
                                     <td>{{ $identifikasicoaching->coachName }}</td>
                                     <td>{{ $identifikasicoaching->coacheeName }}</td>
                                     <td>{{ $identifikasicoaching->tanggal }}</td>
                                     <td>{{ $identifikasicoaching->permasalahan }}</td>
                                     <td>{{ $identifikasicoaching->strategi }}</td>
                                     <td>{{ $identifikasicoaching->rencana }}</td>
-                                    <td>{{ $identifikasicoaching->rekomendasi }}</td>
+                                    <td>
+                                        @if ($identifikasicoaching->r_coaching == 1)
+                                            Yes
+                                        @else
+                                            No
+                                        @endif
+                                    </td>
+                                    <td>
+                                        @if ($identifikasicoaching->r_enhancement == 1)
+                                            Yes
+                                        @else
+                                            No
+                                        @endif
+                                    </td>
+                                    <td>
+                                        @if ($identifikasicoaching->r_mentoring == 1)
+                                            Yes
+                                        @else
+                                            No
+                                        @endif
+                                    </td>
+                                    <td>
+                                        @if ($identifikasicoaching->r_counseling == 1)
+                                            Yes
+                                        @else
+                                            No
+                                        @endif
+                                    </td>
+                                    <td>
+                                        @if ($identifikasicoaching->r_meeting == 1)
+                                            Yes
+                                        @else
+                                            No
+                                        @endif
+                                    </td>
+                                    <td>
+                                        @if ($identifikasicoaching->r_clinic == 1)
+                                            Yes
+                                        @else
+                                            No
+                                        @endif
+                                    </td>
                                     <td>{{ $identifikasicoaching->goal }}</td>
                                     <td>{{ $identifikasicoaching->reality }}</td>
                                     <td>{{ $identifikasicoaching->opsi }}</td>
                                     <td>{{ $identifikasicoaching->will }}</td>
-                                    <td>{{ $identifikasicoaching->penilaian }}</td>
+                                    <td>
+                                        @if ($identifikasicoaching->p_leadership == 3)
+                                            Baik
+                                        @elseif ($identifikasicoaching->p_leadership == 2)
+                                            Sedang
+                                        @elseif ($identifikasicoaching->p_leadership == 1)
+                                            Kurang
+                                        @else
+                                            -
+                                        @endif
+                                    </td>
+                                    <td>
+                                        @if ($identifikasicoaching->p_developforothers == 3)
+                                            Baik
+                                        @elseif ($identifikasicoaching->p_developforothers == 2)
+                                            Sedang
+                                        @elseif ($identifikasicoaching->p_developforothers == 1)
+                                            Kurang
+                                        @else
+                                            -
+                                        @endif
+                                    </td>
+                                    <td>
+                                        @if ($identifikasicoaching->p_timemanagement == 3)
+                                            Baik
+                                        @elseif ($identifikasicoaching->p_timemanagement == 2)
+                                            Sedang
+                                        @elseif ($identifikasicoaching->p_timemanagement == 1)
+                                            Kurang
+                                        @else
+                                            -
+                                        @endif
+                                    </td>
+                                    <td>
+                                        @if ($identifikasicoaching->p_transferknowledge == 3)
+                                            Baik
+                                        @elseif ($identifikasicoaching->p_transferknowledge == 2)
+                                            Sedang
+                                        @elseif ($identifikasicoaching->p_transferknowledge == 1)
+                                            Kurang
+                                        @else
+                                            -
+                                        @endif
+                                    </td>
+                                    <td>
+                                        @if ($identifikasicoaching->p_monitoringlaporanteam == 3)
+                                            Baik
+                                        @elseif ($identifikasicoaching->p_monitoringlaporanteam == 2)
+                                            Sedang
+                                        @elseif ($identifikasicoaching->p_monitoringlaporanteam == 1)
+                                            Kurang
+                                        @else
+                                            -
+                                        @endif
+                                    </td>
+                                    <td>
+                                        @if ($identifikasicoaching->p_idealhabits == 3)
+                                            Baik
+                                        @elseif ($identifikasicoaching->p_idealhabits == 2)
+                                            Sedang
+                                        @elseif ($identifikasicoaching->p_idealhabits == 1)
+                                            Kurang
+                                        @else
+                                            -
+                                        @endif
+                                    </td>
                                     <td>
                                         <x-button.button-dropdown title="Actions" class="btn btn-primary" icon="list">
                                             <x-button.button-link class="dropdown-item" title="Edit "

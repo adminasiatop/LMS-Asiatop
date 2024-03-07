@@ -8,11 +8,11 @@
             <div class="col-12">
                 <div class="alert alert-info " role="alert">
                     <i class="fas fa-info-circle mr-2"></i>
-                    Please transfer first before you confirm your payment.
+                    Please transfer first before you confirm your series.
                 </div>
             </div>
-            <div class="col-8">
-                <x-card.card title="Carts" class="p-0">
+            {{-- <div class="col-8">
+                <x-card.card title="Series" class="p-0">
                     <x-table.table-responsive>
                         <thead>
                             <tr>
@@ -87,22 +87,58 @@
                         </div>
                     </div>
                 </x-card.card>
+            </div> --}}
+            <div class="col-6">
+                <x-card.card title="Series" class="p-0">
+                    <x-table.table-responsive>
+                        <thead>
+                            <tr>
+                                <th class="text-center" style="width: 50%">Delete</th>
+                                <th class="text-center">Series Name</th>
+                                {{-- <th class="text-end" style="">Price</th> --}}
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($carts as $cart)
+                                <tr>
+                                    <td align="center">
+                                        <x-button.button-delete id="{{ $cart->id }}"
+                                            url="{{ route('carts.destroy', $cart->id) }}" title="" />
+                                    <td>
+                                        <p class="strong mb-1" align="center">{{ $cart->series->name }}</p>
+                                    </td>
+                                </tr>
+                            @endforeach
+                            {{-- <tr>
+                                <td colspan="2" class="font-weight-bold text-uppercase text-end">
+                                    Grand Total
+                                </td>
+                                <td class="font-weight-bold text-end text-primary">
+                                    Rp. {{ number_format($grandTotal) }}
+                                </td>
+                            </tr> --}}
+                        </tbody>
+                    </x-table.table-responsive>
+                </x-card.card>
             </div>
-            <div class="col-4">
-                <x-card.card title="Payment Confirmation">
+            <div class="col-6">
+                <x-card.card title="Confirmation">
                     <form action="{{ route('transactions.store') }}" method="POST">
                         @csrf
-                        <x-form.input title="Full Name" name="name_of_bank" value="" placeholder="Rafi Tafiqurrahman"
+                        <x-form.input title="NIK" name="user_id" value="" placeholder="NIK" type="text" />
+                        <x-form.input title="Full Name" name="full_name" value="" placeholder="Your Name"
                             type="text" />
-                        <x-form.input title="Your Bank" name="bank_transfer" value="" placeholder="Mandiri" type="text" />
-                        <x-form.select title="Bank Transfer" name="method_of_payment">
+                        <x-form.input title="Position" name="position" value="" placeholder="Position"
+                            type="text" />
+                        {{-- <x-form.select title="Bank Transfer" name="method_of_payment">
                             <option value="mandiri">Mandiri</option>
                             <option value="gopay">Gopay</option>
                             <option value="ovo">Ovo</option>
                         </x-form.select>
-                        <x-form.input title="Date Transfer" name="date_transfer" value="" placeholder="" type="date" />
+                        <x-form.input title="Date Transfer" name="date_transfer" value="" placeholder=""
+                            type="date" />
                         <x-form.input title="Total Price" name="" value="Rp. {{ number_format($grandTotal) }}"
-                            placeholder="" type="text" disabled />
+                            placeholder="" type="text" disabled /> --}}
                         <x-button.button-save icon="check" title="Confirmation"
                             class="btn btn-primary w-full font-weight-bold text-uppercase" />
                     </form>

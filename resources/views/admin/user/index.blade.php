@@ -6,6 +6,9 @@
     <div class="container-xl">
         <div class="row">
             <div class="col-12">
+                <a href="{{ route('admin.users.create') }}" class="btn btn-primary mb-3">
+                    <i class="fas fa-plus mr-2"></i> Create New User
+                </a>
                 <x-card.card-action title="List Users" url="{{ route('admin.users.index') }}">
                     <x-table.table-responsive>
                         <thead>
@@ -48,7 +51,8 @@
                                                         </option>
                                                     @endforeach
                                                 </x-form.select>
-                                                <x-button.button-save title="Save" icon="save" class="btn btn-primary" />
+                                                <x-button.button-save title="Save" icon="save"
+                                                    class="btn btn-primary" />
                                             </form>
                                         </x-modal.modal>
                                         <x-button.button-delete id="{{ $user->id }}"

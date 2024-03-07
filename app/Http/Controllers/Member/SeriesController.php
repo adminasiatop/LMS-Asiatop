@@ -32,7 +32,7 @@ class SeriesController extends Controller
             return view('member.series.index', compact('series'));
         }else{
             // return back with toastr
-            return back()->with('toast_error', 'You have not purchased any series yet!');
+            return back()->with('toast_error', 'You have not any series yet!');
         }
     }
 
@@ -48,15 +48,15 @@ class SeriesController extends Controller
         $seriesPurchased = $this->userSeries()->where('series_id', $series->id)->get();
 
         // check if user purchased this series
-        if($seriesPurchased->count() > 0){
+        //if($seriesPurchased->count() > 0){
             // get videos by series
             $videos = Video::where('series_id', $series->id)->orderBy('episode')->paginate(10);
             // return to view
             return view('member.series.video', compact('series','video','videos'));
-        }else{
-            // return back with toastr
-            return back()->with('toast_error', 'You must purchase this series first');
-        }
+        //}else{
+        //    // return back with toastr
+        //    return back()->with('toast_error', 'You must purchase this series first');
+        //}
     }
 
     /**

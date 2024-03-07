@@ -47,7 +47,7 @@ class DepartemenController extends Controller
 
     }
 
-    public function edit(departemen $departemen)
+    public function edit(Departemen $departemen)
     {
         //dd($departemen);
 
@@ -76,7 +76,7 @@ class DepartemenController extends Controller
 
     }
 
-    public function destroy(departemen $departemen)
+    public function destroy(Departemen $departemen)
     {
         $departemen->delete();
 

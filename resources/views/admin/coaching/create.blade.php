@@ -28,7 +28,7 @@
                             </div>
                             <div class="col-3">
                                 <x-form.input type="date" title="Tanggal Pelaksanaan" name="tanggal" value=""
-                                    placeholder="Input cnc Coachee" />
+                                    placeholder="Input cnc Coachee" required/>
                             </div>
                         </div>
                         <div title="iGROW"
@@ -45,7 +45,7 @@
                         <div class="row">
                             <div class="col-3">
                                 <x-form.textarea type="text" title="Goal" name="goal" value="Goal"
-                                    placeholder="Goal" />
+                                    placeholder="Goal"/>
                             </div>
                             <div class="col-3">
                                 <x-form.textarea type="text" title="Reality" name="reality" value="Reality"

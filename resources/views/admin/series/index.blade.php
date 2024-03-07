@@ -17,7 +17,7 @@
                                 <th>Cover</th>
                                 <th>Name</th>
                                 <th>Tags</th>
-                                <th>Price</th>
+                                {{-- <th>Price</th> --}}
                                 <th>Status</th>
                                 <th>Action</th>
                             </tr>
@@ -49,7 +49,7 @@
                                             </li>
                                         @endforeach
                                     </td>
-                                    <td>Rp. {{ number_format($data->price) }}</td>
+                                    {{-- <td>Rp. {{ number_format($data->price) }}</td> --}}
                                     <td class="text-muted">
                                         {{ $data->status == '1' ? 'Completed' : 'Developed' }}
                                     </td>

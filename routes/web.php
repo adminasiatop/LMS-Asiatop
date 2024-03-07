@@ -21,6 +21,14 @@ Route::controller(App\Http\Controllers\SeriesController::class)->prefix('series'
     Route::get('{series:slug}', 'show')->name('series.show');
     Route::get('{series:slug}/{videos:episode}', 'video')->name('series.video')->middleware('auth');
 });
+// route event
+Route::controller(App\Http\Controllers\EventController::class)->prefix('event')->group(function(){
+    Route::get('/', 'index')->name('event.index');
+    Route::get('{event:slug}', 'show')->name('event.show');
+    Route::get('{event:slug}/{videos:episode}', 'video')->name('event.video')->middleware('auth');
+});
+
+
 // route carts
 Route::controller(App\Http\Controllers\CartController::class)->prefix('carts')->middleware('auth')->group(function(){
     Route::get('/', 'index')->name('carts.index');
@@ -80,8 +88,21 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.',  'middleware' => ['auth', '
         Route::get('edit/{series:slug}/{video:video_code}', 'edit')->name('videos.edit');
         Route::put('{series:slug}/{video:video_code}', 'upda')->name('videos.update');
     });
+    // route event
+    Route::resource('event', App\Http\Controllers\Admin\EventController::class);
+    // route videos
+    Route::controller(App\Http\Controllers\Admin\VideoController::class)->prefix('videos')->group(function(){
+        // add videos by slug series
+        Route::get('add/{event:slug}', 'create')->name('videos.create');
+        Route::post('add/{event:slug}', 'store')->name('videos.store');
+        // delete videos
+        Route::delete('delete/{video:id}', 'destroy')->name('videos.destroy');
+        // edit videos
+        Route::get('edit/{event:slug}/{video:video_code}', 'edit')->name('videos.edit');
+        Route::put('{event:slug}/{video:video_code}', 'upda')->name('videos.update');
+    });
     // route users
-    Route::resource('users', App\Http\Controllers\Admin\UserController::class)->only('index', 'update');
+    Route::resource('users', App\Http\Controllers\Admin\UserController::class)->only('index', 'update', 'create');
     // route roles
     Route::resource('roles', App\Http\Controllers\Admin\RoleController::class);
     // route permissions
@@ -96,9 +117,9 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.',  'middleware' => ['auth', '
     Route::resource('divisi', App\Http\Controllers\Admin\DivisiController::class);
     Route::resource('departemen', App\Http\Controllers\Admin\DepartemenController::class);
     Route::resource('identifikasicoaching', App\Http\Controllers\Admin\IdentifikasicoachingController::class);
-    // Route::post('admin.cnc.store','CncController@store');
-    // Route::resource('fcoaching', App\Http\Controllers\Admin\FCoachingcontroller::class);
-    // Route::resource('fconseling', App\Http\Controllers\Admin\FConselingController::class);
+    //Route::post('admin.cnc.store','CncController@store');
+    Route::resource('fcoaching', App\Http\Controllers\Admin\FCoachingcontroller::class);
+    Route::resource('fconseling', App\Http\Controllers\Admin\FConselingController::class);
     Route::resource('coaching', App\Http\Controllers\Admin\CoachingController::class);
     Route::resource('counseling', App\Http\Controllers\Admin\CounselingController::class);
     });

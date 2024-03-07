@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\SeriesStoreRequest;
 use App\Http\Requests\SeriesUpdateRequest;
+use Illuminate\Contracts\Pagination\Paginator;
 
 class SeriesController extends Controller
 {
@@ -116,7 +117,7 @@ class SeriesController extends Controller
     public function update(SeriesUpdateRequest $request, $slug)
     {
         // call method uploadCover from trait hasCover
-        $cover = $this->uploadCover($request, $path = 'public/covers/', $name='cover');
+        $cover = $this->uploadImage($request, $path = 'public/covers/', $name='cover');
 
         // get series by slug
         $series = Series::where('slug', $slug)->first();
@@ -165,4 +166,5 @@ class SeriesController extends Controller
         // return redirect back with toastr
         return back()->with('toast_success', 'Series deleted successfully');
     }
+
 }

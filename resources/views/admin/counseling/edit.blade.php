@@ -28,8 +28,9 @@
                                     </select>
                                 </div>
                                 <div class="col-3">
-                                    <x-form.input type="date" title="Tanggal Pelaksanaan" name="tanggal" value=""
-                                    placeholder="Input cnc Coachee" />
+                                    <x-form.input type="date" title="Tanggal Pelaksanaan" name="tanggal" value="{{$Counseling->tanggal}}"
+                                    placeholder="Input cnc Coachee" required>
+                                    </x-form.input>
                                 </div>
                             </div>
                             <x-form.textarea title="Topik conseling" name="topikkonseling" value="Topik Counseling" placeholder="">

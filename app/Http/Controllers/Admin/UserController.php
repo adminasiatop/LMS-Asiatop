@@ -28,6 +28,14 @@ class UserController extends Controller
         return view('admin.user.index', compact('users', 'roles'));
     }
 
+    public function create(){
+
+        $roles = Role::all();
+
+        return view('admin.user.create', compact('roles'));
+        
+    }
+
     /**
      * Update the specified resource in storage.
      *

@@ -4,6 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\User;
 use App\Models\Series;
+use App\Models\Event;
+use App\Models\Identifikasicoaching;
+use App\Models\Coaching;
+use App\Models\Counseling;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
 use App\Models\TransactionDetail;
@@ -27,14 +31,22 @@ class DashboardController extends Controller
         $transactionVerified = Transaction::where('status', false)->count();
         // count all users where role is member
         $members = User::with('roles')->role('member')->count();
+        // count all events
+        $events = Event::count();
         // count all series
         $series = Series::count();
         // sum all transaction
         $profits = TransactionDetail::sum('grand_total');
         // call method bestSeries from Trait HasSeries
         $bestSeries = $this->bestSeries();
+        // Count all Identify Coaching
+        $identify_coachings = Identifikasicoaching::count();
+        // Count all Coaching
+        $coachings = Coaching::count();
+        // Count all Counseling
+        $counselings = Counseling::count();
 
         // return view
-        return view('admin.dashboard', compact('transactionVerified', 'members', 'series', 'profits', 'bestSeries'));
+        return view('admin.dashboard', compact('transactionVerified', 'members', 'series', 'profits', 'bestSeries', 'events', 'identify_coachings','coachings', 'counselings'));
     }
 }

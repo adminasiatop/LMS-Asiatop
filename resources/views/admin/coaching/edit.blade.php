@@ -29,7 +29,7 @@
                                 </select>
                             </div>
                             <div class="col-3">
-                                <x-form.input type="date" title="Tanggal Pelaksanaan" name="tanggal" value=""
+                                <x-form.input type="date" title="Tanggal Pelaksanaan" name="tanggal" value="{{$Coaching->tanggal}}"
                                     placeholder="Input cnc Coachee">
                                 </x-form.input>
                             </div>
@@ -91,7 +91,7 @@
                         </x-form.textarea>
                         <x-button.button-save title="Save" icon="save" class="btn btn-primary" />
                         <x-button.button-link class="btn btn-dark text-white" title="Go Back" icon="arrow-left"
-                            url="{{ route('admin.identifikasicoaching.index') }}">
+                            url="{{ route('admin.coaching.index') }}">
                         </x-button.button-link>
                     </form>
                 </x-card.card>

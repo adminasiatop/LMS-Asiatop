@@ -14,8 +14,7 @@
                             <div class="ribbon bg-red">New</div>
                             <h3 class="card-title">{{ $series->name }}</h3>
                             <p class="card-text">{{ $series->description }}</p>
-                            <x-utilities.item date="{{ $series->created_at->format('d F Y') }}"
-                                level="{{ $series->level }}"
+                            <x-utilities.item date="{{ $series->created_at->format('d F Y') }}" level="{{ $series->level }}"
                                 status="{{ $series->status == 1 ? 'Compeleted' : 'Developed' }}"
                                 episode="{{ $series->videos->count() }} Episode" members="{{ $members }} Members" />
                             <div class="mt-2">
@@ -28,14 +27,14 @@
                                 @else
                                     <form action="{{ route('carts.store', $series->slug) }}" method="POST">
                                         @csrf
-                                        <x-button.button-save icon="cart" title="Ikut"
+                                        <x-button.button-save icon="" title="Choose"
                                             class="btn btn-outline-primary" />
                                     </form>
                                 @endif
                             </div>
                         </div>
                         <div class="col-5">
-                            <img src="{{ URL($series->cover ) }} " class="img-fluid" />
+                            <img src="{{ $series->cover }}" class="img-fluid" />
                         </div>
                     </div>
                 </x-card.card-description>
@@ -47,9 +46,9 @@
                             <a href="{{ route('series.video', [$series->slug, $video->episode]) }}"
                                 class="list-group-item list-group-item-action" aria-current="true">
                                 Eps - {{ $video->episode }} {{ $video->name }}
-                                <span class="badge bg-{{ $video->intro == 1 ? 'azure' : 'red' }} ml-1">
+                                {{-- <span class="badge bg-{{ $video->intro == 1 ? 'azure' : 'red' }} ml-1">
                                     {{ $video->intro == 1 ? 'free' : 'pro' }}
-                                </span>
+                                </span> --}}
                             </a>
                         @endforeach
                     </div>

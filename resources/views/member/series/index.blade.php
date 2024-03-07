@@ -11,7 +11,7 @@
                         <div class="card card-stacked">
                             <div class="card-body">
                                 <h3 class="card-title">{{ $data->series->name }}</h3>
-                                <p class="text-muted">{{ $data->series->description }}</p>
+                                <p class="text-muted text-truncate text-wrap" style="height: 12rem">{{ $data->series->description }}</p>
                                 <div class="d-flex justify-content-between">
                                     <div>
                                         {{ $data->series->videos->count() }} Episode

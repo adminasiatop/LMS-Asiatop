@@ -38,7 +38,7 @@
                             <td>{{ $counselings->fukonseling}}</td>
                             <td>{{ $counselings->targetkonseling}}</td>
                             <td>{{ $counselings->hasilkonseling}}</td>
-                            <td>{{ $counselings->summary }}</td>
+                            <td>{{ $counselings->summary}}</td>
                             <td>
                                 <x-button.button-dropdown title="Actions" class="btn btn-primary" icon="list">
                                     <x-button.button-link class="dropdown-item" title="Edit " url="{{ route('admin.counseling.edit' , $counselings->id) }}" icon="edit" />

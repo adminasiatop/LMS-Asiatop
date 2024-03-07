@@ -1,7 +1,7 @@
 <div class="container-fluid value">
     <p style="color: rgba(255, 90, 60, 1)">Our Value</p>
     <h2 class="power-title">Why P.O.W.E.R?</h2>
-    <div class="row row-cols-5 row-cols-md-5 g-4">
+    <div class="row row-cols-5 row-cols-md-5 g-4 mx-auto">
         <div class="col">
             <div class="card h-100">
                 <img src="{{ url('/assets/images/professional.png') }}" class="card-image card-img-top" alt="professional">

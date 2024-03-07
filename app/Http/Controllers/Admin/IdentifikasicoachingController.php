@@ -25,7 +25,8 @@ class IdentifikasicoachingController extends Controller
             ->leftJoin('karyawans as k', 'k.id', '=', 'i.coachkaryawanID')
             ->leftJoin('karyawans as kc', 'kc.id', '=', 'i.coacheekaryawanID')
             ->get();
-        
+
+       
         // return view
         return view('admin.Identifikasicoaching.index', compact('identifikasicoaching'));
     }
@@ -41,7 +42,7 @@ class IdentifikasicoachingController extends Controller
 
 
         // return view dengan data divisi dan departemen
-        return view ('admin.identifikasicoaching.create', compact('karyawan','karyawanb'));
+        return view('admin.identifikasicoaching.create', compact('karyawan', 'karyawanb'));
     }
 
     public function store(Request $request)
@@ -51,30 +52,50 @@ class IdentifikasicoachingController extends Controller
         //     'nik'   => 'required|min:6',
         //     'nama'  => 'required|min:5'
         // ]);
-            
-            // dd($request);
 
-        //create karyawan
+        // dd($request);
+
+        // {
+        //     $request->validate([
+
+        //         'r_coaching' => 'boolean',
+    
+        //     ]);
+    
+        //     $identifikasiCoaching = new IdentifikasiCoaching;
+        //     $identifikasiCoaching->r_coaching = $request->r_coaching;
+        //     $identifikasiCoaching->save();
+            
+
+        // }
+
         Identifikasicoaching::create([
-            'coachkaryawanID'=> $request->coachkaryawanID,
-            'coacheekaryawanID'=> $request->coacheekaryawanID,
+            'coachkaryawanID' => $request->coachkaryawanID,
+            'coacheekaryawanID' => $request->coacheekaryawanID,
             'tanggal' => $request->tanggal,
             'permasalahan' => $request->permasalahan,
             'strategi' => $request->strategi,
             'rencana' => $request->rencana,
-            'rekomendasi' => $request->rekomendasi,
-            'penilaian' => $request->penilaian,
+            'r_coaching' => $request->r_coaching,
+            'r_enhancement' => $request->r_enhancement,
+            'r_mentoring' => $request->r_mentoring,
+            'r_counseling' => $request->r_counseling,
+            'r_meeting' => $request->r_coaching,
+            'r_clinic' => $request->r_clinic,
+            'p_leadership' => $request->p_leadership,
+            'p_developforothers' => $request->p_developforothers,
+            'p_timemanagement' => $request->p_timemanagement,
+            'p_transferknowledge' => $request->p_transferknowledge,
+            'p_monitoringlaporanteam' => $request->p_monitoringlaporanteam,
+            'p_idealhabits' => $request->p_idealhabits,
             'goal' => $request->goal,
             'reality' => $request->reality,
             'opsi' => $request->opsi,
             'will' => $request->will
+        ]);
 
-            
-       ]);
-        
-         // redirect to cnc inedex with toastr
-         return redirect(route('admin.identifikasicoaching.index'))->with('toast_success', 'Identifikasi coaching created successfully');
-
+        // redirect to cnc inedex with toastr
+        return redirect(route('admin.identifikasicoaching.index'))->with('toast_success', 'Identifikasi coaching created successfully');
     }
 
     public function edit(Identifikasicoaching $Identifikasicoaching)
@@ -106,25 +127,34 @@ class IdentifikasicoachingController extends Controller
         //     'nik'   => 'required|min:6',
         //     'nama'  => 'required|min:5'
         // ]);
-
+        // dd($Identifikasicoaching);
         //create karyawan
         $Identifikasicoaching->update([
-            'coacheekaryawanID'=> $request->coacheekaryawanID,
+            'coacheekaryawanID' => $request->coacheekaryawanID,
             'tanggal' => $request->tanggal,
             'permasalahan' => $request->permasalahan,
             'strategi' => $request->strategi,
             'rencana' => $request->rencana,
-            'rekomendasi' => $request->rekomendasi,
-            'penilaian' => $request->penilaian,
+            'r_coaching' => $request->r_coaching,
+            'r_enhancement' => $request->r_enhancement,
+            'r_mentoring' => $request->r_mentoring,
+            'r_counseling' => $request->r_counseling,
+            'r_meeting' => $request->r_coaching,
+            'r_clinic' => $request->r_clinic,
+            'p_leadership'=> $request->p_leadership,
+            'p_developforothers'=> $request->p_developforothers,
+            'p_timemanagement'=> $request->p_timemanagement,
+            'p_transferknowledge'=> $request->p_transferknowledge,
+            'p_monitoringlaporanteam'=> $request->p_monitoringlaporanteam,
+            'p_idealhabits'=> $request->p_idealhabits,
             'goal' => $request->goal,
             'reality' => $request->reality,
             'opsi' => $request->opsi,
             'will' => $request->will
         ]);
-        
-         // redirect to karyawan index with toastr
-         return redirect(route('admin.identifikasicoaching.index'))->with('toast_success', 'Karyawan updated successfully');
 
+        // redirect to karyawan index with toastr
+        return redirect(route('admin.identifikasicoaching.index'))->with('toast_success', 'Coaching Identify updated successfully');
     }
 
     public function destroy(Identifikasicoaching $Identifikasicoaching)
@@ -133,6 +163,5 @@ class IdentifikasicoachingController extends Controller
 
         // redirect to karyawan index with toastr
         return redirect(route('admin.identifikasicoaching.index'))->with('toast_success', 'Deleted successfully');
-
     }
 }

@@ -31,8 +31,9 @@
                                 </select>
                             </div>
                             <div class="col-3">
-                                <x-form.input type="date" title="Tanggal Pelaksanaan" name="tanggal" value=""
-                                    placeholder="Input cnc Coachee" />
+                                <x-form.input type="date" title="Tanggal Pelaksanaan" name="tanggal" value="{{$Identifikasicoaching->tanggal}}"
+                                    placeholder="Input cnc Coachee">
+                                </x-form.input>
                             </div>
                         </div>
                         <div title="iGROW"
@@ -87,38 +88,38 @@
                         </x-form.textarea>
                         <div class="row">
                             <div class="col-6">
-                                <x-form.checkbox title="Rekomendasi Coaching yang diajukan oleh Coach untuk Coachee">
+                                <p>Rekomendasi Coaching yang diajukan oleh Coach untuk Coachee</p>
                                 <label class="form-check">
-                                    <input class="form-check-input @error('status') is-invalid @enderror" type="checkbox"
-                                        name="rekomendasi" value="1">
+                                    <input class="form-check-input @error('r_coaching') is-invalid @enderror" type="checkbox" 
+                                        name="r_coaching" id="r_coaching[]" value="" {{  ($Identifikasicoaching->r_coaching ? ' checked' : '') }} >
                                     <span class="form-check-label">Coaching one on one</span>
                                 </label>
                                 <label class="form-check">
-                                    <input class="form-check-input @error('status') is-invalid @enderror" type="checkbox"
-                                        name="enhancement" value="1">
+                                    <input class="form-check-input @error('r_enhancement') is-invalid @enderror" type="checkbox"
+                                        name="enhancement" value="" {{  ($Identifikasicoaching->r_enhancement ? ' checked' : '') }}>
                                     <span class="form-check-label">Training Enhancement</span>
                                 </label>
                                 <label class="form-check">
-                                    <input class="form-check-input @error('status') is-invalid @enderror" type="checkbox"
-                                        name="mentoring" value="1">
+                                    <input class="form-check-input @error('r_mentoring') is-invalid @enderror" type="checkbox"
+                                        name="mentoring" value="" {{  ($Identifikasicoaching->r_mentoring ? ' checked' : '') }}>
                                     <span class="form-check-label">Join Field Work (Mentoring)</span>
                                 </label>
                                 <label class="form-check">
-                                    <input class="form-check-input @error('status') is-invalid @enderror" type="checkbox"
-                                        name="counseling" value="1">
+                                    <input class="form-check-input @error('r_counseling') is-invalid @enderror" type="checkbox"
+                                        name="counseling" value="" {{  ($Identifikasicoaching->r_counseling ? ' checked' : '') }}>
                                     <span class="form-check-label">Counseling</span>
                                 </label>
                                 <label class="form-check">
-                                    <input class="form-check-input @error('status') is-invalid @enderror" type="checkbox"
-                                        name="meeting" value="1">
+                                    <input class="form-check-input @error('r_clinic') is-invalid @enderror" type="checkbox"
+                                        name="meeting" value="" {{  ($Identifikasicoaching->r_meeting ? ' checked' : '') }}>
                                     <span class="form-check-label">Meeting</span>
                                 </label>
                                 <label class="form-check">
-                                    <input class="form-check-input @error('status') is-invalid @enderror" type="checkbox"
-                                        name="clinic" value="1">
+                                    <input class="form-check-input @error('clinic') is-invalid @enderror" type="checkbox"
+                                        name="clinic" value="" {{  ($Identifikasicoaching->r_clinic ? ' checked' : '') }}>
                                     <span class="form-check-label">Sales Clinic</span>
                                 </label>
-                                </x-form.checkbox>
+                                
                             </div>
                             <div class="col-lg-6">
                                 <x-form.checkbox title="Penilaian Terhadap Coachee">
@@ -134,7 +135,7 @@
                                                 <td>Leadership</td>
                                                 <td>
                                                     <select class="form-select form-select-sm" name="leadership"
-                                                        id="leadership">
+                                                        id="leadership" value="{{  ($Identifikasicoaching->r_clinic ? ' checked' : '') }}">
                                                         <option selected>Pilih</option>
                                                         <option value="3">Baik</option>
                                                         <option value="2">Sedang</option>

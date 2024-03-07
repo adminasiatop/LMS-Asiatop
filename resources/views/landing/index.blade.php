@@ -13,4 +13,5 @@
     @include('layouts.frontend._video')
     @include('layouts.frontend._contactus')
     {{-- @include('layouts.frontend._footer') --}}
+
 @endsection

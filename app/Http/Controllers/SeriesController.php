@@ -16,7 +16,7 @@ class SeriesController extends Controller
     public function index()
     {
         // get all series
-        $series = Series::with('videos')->latest()->get();
+        $series = Series::with('videos')->oldest()->get();
 
         // return to landing page
         return view('landing.series.index', compact('series'));
@@ -87,7 +87,7 @@ class SeriesController extends Controller
             $videos = Video::where('series_id', $series->id)->orderBy('episode')->paginate(10);
         } else {
             // if false, get only intro video
-            return back()->with('toast_error', 'You must buy this series first');
+            return back()->with('toast_error', 'You must choose this series first');
         }
         // return to view
         return view('landing.series.video', compact('series', 'video', 'videos'));

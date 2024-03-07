@@ -11,7 +11,7 @@ class Transaction extends Model
     use HasFactory, HasScope;
 
     protected $fillable = [
-        'user_id', 'invoice', 'name_of_bank', 'bank_transfer', 'method_of_payment', 'date_transfer', 'status'
+        'user_id', 'full_name', 'position', 'status'
     ];
 
     public function user()

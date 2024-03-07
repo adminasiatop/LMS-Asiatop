@@ -10,28 +10,42 @@
     </div>
     <div class="col-center">
         <h3 class="text-left" style="color: black">
-            NEOP - ADVANCE
+            Series
         </h3>
     </div>
-
-
     <div class="card-group">
-
         @foreach ($series as $data)
-            <div class="col-6 mx-auto" style="width: 22rem; height: 20rem">
-                <div class="card shadow">
+            <div class="col-6 mx-auto" style="width: 22rem; height: 22rem">
+                <div class="card shadow" style="width: 22rem; height: 23rem">
                     <img src="{{ $data->cover }}" class="img-fluid" />
                     <div class="card-body">
-                        <h3>{{ $data->name }}</h3>
-                        {{-- <p class="card-text text-break">{{ $data->description }}</p> --}}
-                        <a class="btn btn-info" href="{{ route('series.show', $data->slug) }}">Lihat</a>
+                        <h2 class="text-capitalize">{{ $data->name }}</h2>
+                        <p class="card-text text-truncate text-wrap" style="max-width: 25rem; height: 3rem">
+                            {{ $data->description }}</p>
+                        <a class="btn btn-info" href="{{ route('series.show', $data->slug) }}">View</a>
                     </div>
                 </div>
             </div>
         @endforeach
     </div>
+    <nav aria-label="Page">
+        <ul class="pagination justify-content-left">
+            <li class="page-item disabled">
+                <a class="page-link">Previous</a>
+            </li>
+            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+            <li class="page-item" aria-current="page">
+                <a class="page-link" href="#">2</a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item">
+                <a class="page-link" href="#">Next</a>
+            </li>
+        </ul>
+    </nav>
 </div>
 
+<link href="https://raw.githubusercontent.com/twbs/bootstrap/master/dist/css/bootstrap.css" />
 {{-- <div class="col-center">
         <h3 class="text-left" style="color: black">
             MTP - LDP - SDP

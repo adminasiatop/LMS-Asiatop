@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Cart;
 use App\Models\Series;
+use App\Models\Departemen;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -17,7 +18,7 @@ class CartController extends Controller
 
         // sum total price from cart
         $grandTotal = $carts->sum('price');
-
+        
         // check if cart is not empty
         if($carts->count() > 0){
             // return to cart page

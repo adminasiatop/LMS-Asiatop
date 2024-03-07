@@ -16,7 +16,7 @@
         <div class="row">
             @foreach ($series as $data)
                 <div class="col-12 col-lg-4">
-                    <a class="text-dark" href="{{ route('series.show', $data->slug) }}">
+                    <a class="text-dark text-capitalize" href="{{ route('series.show', $data->slug) }}">
                         <div class="card card-stacked">
                             @if ($data->created_at < now()->addMonth(1))
                                 <div class="ribbon bg-primary">
@@ -29,14 +29,15 @@
                             @endif
                             <div class="card-body">
                                 <h3 class="card-title">{{ $data->name }}</h3>
-                                <p class="text-muted">{{ $data->description }}</p>
+                                <p class="text-muted text-truncate text-wrap font-monospace text-justify"
+                                    style="max-width: 25rem; height:10rem">{{ $data->description }}</p>
                                 <div class="d-flex justify-content-between">
                                     <div>
                                         {{ $data->videos->count() }} Episode
                                     </div>
                                 </div>
                             </div>
-                            <div class="card-footer">
+                            <div class="card-footer" \>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="text-dark">
                                         <svg xmlns="http://www.w3.org/2000/svg"

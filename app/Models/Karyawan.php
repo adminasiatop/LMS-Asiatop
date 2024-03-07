@@ -35,4 +35,11 @@ class Karyawan extends Model
     {
         return $this->hasMany(Identifikasicoaching::class,'id');
     }
+
+
+    //relasi ke fuser
+    public function user()
+        {
+            return $this->belongsTo(Users::class,'NIK');
+        }
 }
